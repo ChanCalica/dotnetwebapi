@@ -43,7 +43,7 @@ namespace WebAPI
                 builder =>
                 {
                     builder.WithOrigins("http://localhost:4444",
-                                        "http://localhost:4200",
+                                        "http://20.70.225.199:8080",
                                         "http://localhost:30001"
                                         )
                                         .AllowAnyHeader()
