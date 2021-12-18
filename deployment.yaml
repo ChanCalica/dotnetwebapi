@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydotnet-app-service
+spec:
+  selector:
+    app: mydotnet-app-service
+  ports:
+  - protocol: "TCP"
+    port: 8081
+    targetPort: 80
+    nodePort: 30002
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydotnet-app-service
+spec:
+  selector:
+    matchLabels:
+      app: mydotnet-app-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mydotnet-app-service
+    spec:
+      containers:
+      - name: mydotnet-app-service
+        image: mydotnet-app
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
