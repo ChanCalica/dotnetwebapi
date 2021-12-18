@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: mydotnet-app-service
-        image: chan29/dotnetwebapi:v1
+        image: chan29/dotnetwebapi:v2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
