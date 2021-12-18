@@ -24,7 +24,6 @@ stages:
       inputs:
         command: 'restore'
         feedsToUse: 'select'
-
     - task: DotNetCoreCLI@2
       inputs:
         command: 'build'
@@ -37,10 +36,8 @@ stages:
         repository: 'chan29 / dotnetwebapi'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(Pipeline.Workspace)'
+        artifact: 'Artifact'
         publishLocation: 'pipeline'
-
-   
