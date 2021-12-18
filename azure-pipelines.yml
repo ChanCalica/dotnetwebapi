@@ -36,6 +36,7 @@ stages:
         repository: 'chan29 / dotnetwebapi'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        tags: v1
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: '$(Pipeline.Workspace)'
